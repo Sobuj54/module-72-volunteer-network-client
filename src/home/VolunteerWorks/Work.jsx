@@ -1,4 +1,4 @@
-const Work = ({ work, colors }) => {
+const Work = ({ work }) => {
   const { eventName, imageURL } = work;
 
   return (

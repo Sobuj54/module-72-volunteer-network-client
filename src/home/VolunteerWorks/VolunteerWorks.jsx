@@ -8,7 +8,6 @@ const VolunteerWorks = () => {
     fetch("events.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setWorks(data);
       });
   }, []);
