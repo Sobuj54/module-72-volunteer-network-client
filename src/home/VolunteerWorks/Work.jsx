@@ -16,7 +16,7 @@ const Work = ({ work }) => {
 
   return (
     <div
-      className="card card-compact w-96 mx-auto bg-base-100 shadow-xl mt-5"
+      className="card card-compact w-auto mx-auto bg-base-100 shadow-xl mt-5"
       style={{ backgroundColor: color }}>
       <figure>
         <img src={imageURL} alt="Shoes" />

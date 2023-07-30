@@ -20,7 +20,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 mt-5">
+    <div className="navbar bg-base-100 mt-2 md:mt-5">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost md:hidden">
@@ -44,7 +44,7 @@ const NavBar = () => {
             {lists}
           </ul>
         </div>
-        <div className="w-[120px] md:w-[200px]">
+        <div className="w-[120px] md:w-[200px] ">
           <img src={img} alt="" />
         </div>
       </div>

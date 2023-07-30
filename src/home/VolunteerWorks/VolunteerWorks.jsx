@@ -13,7 +13,7 @@ const VolunteerWorks = () => {
   }, []);
 
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-20">
+    <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10 md:mt-20 w-11/12 lg:w-full mx-auto">
       {works.map((work) => (
         <Work key={work.eventName} work={work}></Work>
       ))}
