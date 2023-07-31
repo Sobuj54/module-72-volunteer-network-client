@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "element",
+        path: "events",
         element: (
           <PrivateRoute>
             <EventTasks></EventTasks>

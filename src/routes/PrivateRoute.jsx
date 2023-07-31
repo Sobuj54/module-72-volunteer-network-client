@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return <span className="loading loading-spinner text-primary"></span>;
   }
-  return <Navigate to="/login"></Navigate>;
+  return <Navigate to="/login" replace></Navigate>;
 };
 
 export default PrivateRoute;
