@@ -5,7 +5,7 @@ const VolunteerWorks = () => {
   const [works, setWorks] = useState([]);
 
   useEffect(() => {
-    fetch("events.json")
+    fetch("http://localhost:5000/volunteers")
       .then((res) => res.json())
       .then((data) => {
         setWorks(data);
@@ -15,7 +15,7 @@ const VolunteerWorks = () => {
   return (
     <div className="grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10 md:mt-20 w-11/12 lg:w-full mx-auto">
       {works.map((work) => (
-        <Work key={work.eventName} work={work}></Work>
+        <Work key={work._id} work={work}></Work>
       ))}
     </div>
   );

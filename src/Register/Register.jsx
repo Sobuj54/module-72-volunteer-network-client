@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Context/ContextAPI";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { register } = useContext(AuthContext);
@@ -24,6 +25,26 @@ const Register = () => {
       })
       .catch((error) => {
         console.log(error);
+      });
+
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "New volunteer has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       });
   };
 
