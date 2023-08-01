@@ -5,6 +5,7 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import EventTasks from "../event/EventTasks";
 import PrivateRoute from "./PrivateRoute";
+import Volunteers from "../volunteers/Volunteers";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <EventTasks></EventTasks>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "volunteers",
+        element: (
+          <PrivateRoute>
+            <Volunteers></Volunteers>
           </PrivateRoute>
         ),
       },
