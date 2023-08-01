@@ -65,14 +65,14 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <Link to="/login" className="btn btn-sm md:btn-md btn-primary mr-2 ">
-            Login
-          </Link>
-        ) : (
           <Link
             onClick={handleLogOut}
             className="btn btn-sm md:btn-md btn-primary mr-2 ">
             Logout
+          </Link>
+        ) : (
+          <Link to="/login" className="btn btn-sm md:btn-md btn-primary mr-2 ">
+            Login
           </Link>
         )}
         <Link className="btn btn-sm md:btn-md btn-neutral  ">Admin</Link>

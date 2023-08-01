@@ -4,6 +4,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signOut,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 export const AuthContext = createContext();
@@ -11,11 +12,16 @@ const auth = getAuth(app);
 
 const ContextAPI = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const register = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const logIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logOut = () => {
@@ -27,6 +33,7 @@ const ContextAPI = ({ children }) => {
     user,
     loading,
     register,
+    logIn,
     logOut,
   };
 
