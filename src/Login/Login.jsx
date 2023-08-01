@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/ContextAPI";
 
 const Login = () => {
-  const { logIn } = useContext(AuthContext);
+  const { logIn, googleLogIn } = useContext(AuthContext);
 
   const handleLogIn = (event) => {
     event.preventDefault();
@@ -16,6 +16,14 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleGoogleLogIn = () => {
+    googleLogIn()
+      .then((result) => {
+        const user = result.user;
       })
       .catch((err) => console.log(err));
   };
@@ -67,7 +75,11 @@ const Login = () => {
               </div>
               <div className="divider">OR</div>
               <div className="text-center">
-                <button className="btn btn-circle btn-outline ">G</button>
+                <button
+                  onClick={handleGoogleLogIn}
+                  className="btn btn-circle btn-outline ">
+                  G
+                </button>
               </div>
             </div>
           </form>
