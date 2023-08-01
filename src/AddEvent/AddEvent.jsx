@@ -1,11 +1,45 @@
+import Swal from "sweetalert2";
 import LeftNav from "../shared/LeftNav/LeftNav";
 
 const AddEvent = () => {
+  const handleCreateEvent = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const title = form.title.value;
+    const date = form.date.value;
+    const description = form.description.value;
+    const url = form.url.value;
+
+    const createdEvent = { title, date, description, url };
+    console.log(createdEvent);
+
+    fetch("http://localhost:5000/events", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(createdEvent),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "New event has been saved",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+
   return (
     <div className="md:flex md:justify-between mt-14">
       <LeftNav></LeftNav>
       <div className="w-8/12 mx-auto">
-        <form className="space-y-4">
+        <form onSubmit={handleCreateEvent} className="space-y-4">
           <div className="grid grid-cols-2 gap-5">
             <div className="form-control w-full">
               <label className="label">
@@ -15,7 +49,7 @@ const AddEvent = () => {
                 <input
                   type="text"
                   placeholder="Event Title"
-                  name="event"
+                  name="title"
                   className="input input-bordered w-full"
                 />
               </label>
@@ -27,6 +61,7 @@ const AddEvent = () => {
               <label className="input-group">
                 <input
                   type="date"
+                  name="date"
                   placeholder="Event Date"
                   className="input input-bordered w-full"
                 />
@@ -41,6 +76,7 @@ const AddEvent = () => {
               <label className="input-group">
                 <input
                   type="text"
+                  name="description"
                   placeholder="Enter description"
                   className="input input-bordered h-[100px] w-full"
                 />
@@ -52,8 +88,8 @@ const AddEvent = () => {
               </label>
               <label className="input-group">
                 <input
-                  type="url"
-                  name="image"
+                  type="text"
+                  name="url"
                   placeholder="Enter image url"
                   className="input input-bordered w-full"
                 />

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Volunteer from "./Volunteer";
-import { Link } from "react-router-dom";
 import LeftNav from "../shared/LeftNav/LeftNav";
 
 const Volunteers = () => {
