@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import img from "../../assets/logos/Group 1329.png";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/ContextAPI";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const lists = (
     <>
       <li>
@@ -18,6 +22,14 @@ const NavBar = () => {
       </li>
     </>
   );
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("logged Out");
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="navbar bg-base-100 mt-2 md:mt-5">
@@ -52,9 +64,17 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{lists}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn btn-sm md:btn-md btn-primary mr-2 ">
-          Login
-        </Link>
+        {user ? (
+          <Link to="/login" className="btn btn-sm md:btn-md btn-primary mr-2 ">
+            Login
+          </Link>
+        ) : (
+          <Link
+            onClick={handleLogOut}
+            className="btn btn-sm md:btn-md btn-primary mr-2 ">
+            Logout
+          </Link>
+        )}
         <Link className="btn btn-sm md:btn-md btn-neutral  ">Admin</Link>
       </div>
     </div>
