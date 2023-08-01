@@ -1,5 +1,5 @@
 const EventTasks = () => {
-  return <div>hellow</div>;
+  return <div></div>;
 };
 
 export default EventTasks;

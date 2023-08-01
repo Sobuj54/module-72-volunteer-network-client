@@ -6,6 +6,7 @@ import Register from "../Register/Register";
 import EventTasks from "../event/EventTasks";
 import PrivateRoute from "./PrivateRoute";
 import Volunteers from "../volunteers/Volunteers";
+import AddEvent from "../AddEvent/AddEvent";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             <Volunteers></Volunteers>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "addEvent",
+        element: <AddEvent></AddEvent>,
       },
     ],
   },

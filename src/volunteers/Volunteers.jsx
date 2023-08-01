@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Volunteer from "./Volunteer";
+import { Link } from "react-router-dom";
+import LeftNav from "../shared/LeftNav/LeftNav";
 
 const Volunteers = () => {
   const [volunteers, setVolunteers] = useState([]);
@@ -10,23 +12,15 @@ const Volunteers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setVolunteers(data);
       });
   }, []);
 
   return (
-    <div className="flex mt-14">
-      <div className="w-3/12">
-        <h4 className="text-blue-500 mb-4 text-lg font-semibold">
-          Volunteer Register List
-        </h4>
-        <button className="btn">
-          <span className="text-xl">+</span> Add Event
-        </button>
-      </div>
+    <div className="md:flex mt-14">
+      <LeftNav></LeftNav>
 
-      <div className="overflow-x-auto w-full">
+      <div className="overflow-x-auto w-full mt-5 md:mt-0">
         <table className="table">
           {/* head */}
           <thead>
