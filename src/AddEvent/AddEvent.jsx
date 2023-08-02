@@ -1,7 +1,11 @@
 import Swal from "sweetalert2";
 import LeftNav from "../shared/LeftNav/LeftNav";
+import { useContext } from "react";
+import { AuthContext } from "../Context/ContextAPI";
 
 const AddEvent = () => {
+  const { user } = useContext(AuthContext);
+
   const handleCreateEvent = (event) => {
     event.preventDefault();
 
@@ -10,8 +14,9 @@ const AddEvent = () => {
     const date = form.date.value;
     const description = form.description.value;
     const url = form.url.value;
+    const email = user.email;
 
-    const createdEvent = { title, date, description, url };
+    const createdEvent = { email, title, date, description, url };
     console.log(createdEvent);
 
     fetch("http://localhost:5000/events", {
