@@ -7,16 +7,20 @@ const EventTasks = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/events?email=${user.email}`)
+    fetch(`http://localhost:5000/events?email=${user.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("event-access-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setEvents(data);
       });
   }, []);
 
   return (
-    <div className="grid grid-cols-2 gap-8 mt-14">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-14">
       {events.map((event) => (
         <EventTask key={event._id} event={event}></EventTask>
       ))}
