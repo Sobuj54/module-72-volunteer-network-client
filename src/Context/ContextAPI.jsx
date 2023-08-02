@@ -44,6 +44,7 @@ const ContextAPI = ({ children }) => {
           email: currentUser.email,
         };
 
+        // handling token and saving token in local storage
         fetch("http://localhost:5000/jwt", {
           method: "POST",
           headers: {
