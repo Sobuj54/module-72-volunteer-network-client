@@ -13,7 +13,7 @@ const VolunteerWorks = ({ totalWork }) => {
   useEffect(() => {
     async function fetchData() {
       const res = await fetch(
-        `http://localhost:5000/volunteers?page=${currentPage}&limit=${itemsPerPage}`
+        `https://volunteer-network-server-peach.vercel.app/volunteers?page=${currentPage}&limit=${itemsPerPage}`
       );
       const data = await res.json();
       setWorks(data);

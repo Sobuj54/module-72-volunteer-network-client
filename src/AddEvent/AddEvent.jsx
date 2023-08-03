@@ -19,7 +19,7 @@ const AddEvent = () => {
     const createdEvent = { email, title, date, description, url };
     console.log(createdEvent);
 
-    fetch("http://localhost:5000/events", {
+    fetch("https://volunteer-network-server-peach.vercel.app/events", {
       method: "POST",
       headers: {
         "content-type": "application/json",

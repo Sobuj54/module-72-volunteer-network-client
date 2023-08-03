@@ -7,12 +7,15 @@ const EventTasks = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/events?email=${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("event-access-token")}`,
-      },
-    })
+    fetch(
+      `https://volunteer-network-server-peach.vercel.app/events?email=${user.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("event-access-token")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);

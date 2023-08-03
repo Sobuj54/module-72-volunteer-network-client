@@ -45,7 +45,7 @@ const ContextAPI = ({ children }) => {
         };
 
         // handling token and saving token in local storage
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://volunteer-network-server-peach.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

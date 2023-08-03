@@ -27,7 +27,7 @@ const Register = () => {
         console.log(error);
       });
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://volunteer-network-server-peach.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

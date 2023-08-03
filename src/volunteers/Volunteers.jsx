@@ -6,7 +6,7 @@ const Volunteers = () => {
   const [volunteers, setVolunteers] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users`, {
+    fetch(`https://volunteer-network-server-peach.vercel.app/users`, {
       method: "GET",
     })
       .then((res) => res.json())

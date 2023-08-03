@@ -16,7 +16,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/volunteers"),
+        loader: () =>
+          fetch("https://volunteer-network-server-peach.vercel.app/volunteers"),
       },
       {
         path: "login",
