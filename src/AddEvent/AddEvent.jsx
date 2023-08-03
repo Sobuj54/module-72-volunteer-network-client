@@ -43,10 +43,10 @@ const AddEvent = () => {
   return (
     <div className="md:flex md:justify-between mt-14">
       <LeftNav></LeftNav>
-      <div className="w-8/12 mx-auto">
+      <div className="w-10/12 md:w-8/12 mx-auto mt-5 md:mt-1">
         <form onSubmit={handleCreateEvent} className="space-y-4">
-          <div className="grid grid-cols-2 gap-5">
-            <div className="form-control w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="form-control">
               <label className="label">
                 <span className="label-text">Event Title</span>
               </label>
@@ -73,7 +73,7 @@ const AddEvent = () => {
               </label>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="form-control ">
               <label className="label">
                 <span className="label-text">Description</span>

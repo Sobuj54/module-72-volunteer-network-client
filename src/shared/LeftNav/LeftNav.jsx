@@ -8,7 +8,7 @@ const LeftNav = () => {
           Volunteer Register List
         </h4>
       </Link>
-      <Link to="/addEvent" className="btn">
+      <Link to="/addEvent" className="btn mt-2 md:mt-1">
         <span className="text-xl">+</span> Add Event
       </Link>
     </div>
